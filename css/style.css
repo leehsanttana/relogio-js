@@ -38,11 +38,14 @@ p {
     url(../img/background.jpg);
   background-size: cover;
   background-attachment: fixed;
-  height: 876px;
+  height: auto;
   padding: 60px 100px;
   margin-top: 0;
   animation: show-bg 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   transition: background 2s ease, margin-top 0.5s ease;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes show-bg {
@@ -56,7 +59,7 @@ p {
 }
 
 .main-section.active {
-  margin-top: -250px;
+  margin-top: -330px;
 }
 
 /* SESSÃO COMENTÁRIO */
@@ -106,13 +109,14 @@ p {
 /* SESSÃO RELÓGIO */
 
 .hora {
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .hora h1 {
   font-size: 4rem;
   text-transform: uppercase;
   font-weight: 200;
+  margin: 0;
 }
 
 #hora h1 {
@@ -130,13 +134,13 @@ p {
 /* BOTÃO CHAMANDO A SESSÃO INFO */
 
 .btn {
-  background: #d4e0e2;
-  border: 3px solid #acc9cf;
+  background: #e2dad4;
+  border: 3px solid #cfc0ac;
   border-radius: 30px;
   outline: none;
   font-size: 1.125rem;
   padding: 0.5rem 1.1rem;
-  color: #5a5a5a;
+  color: #696058;
   letter-spacing: 0.1rem;
   transition: 0.5s ease;
   text-decoration: none;
@@ -148,60 +152,60 @@ p {
 .btn i {
   margin-top: 0;
   margin-left: 0.6rem;
-  background: #5a5a5a;
+  background: #696058;
   border-radius: 30px;
   padding: 0.2rem 0.4rem 0.2rem 0.6rem;
-  color: #d4e0e2;
+  color: #e2dad4;
 }
 
 .btn:hover {
-  background: #c1ced3;
+  background: #cfc0ac;
 }
 
 /* SESSÃO INFO */
 
 .info {
-  height: 0;
-  width: 100%;
+  height: auto;
   position: fixed;
-  z-index: 1;
-  bottom: 0;
-  background-color: #5a5a5a;
-  overflow-y: hidden;
+  background-color: #696058;
   transition: 0.5s ease;
+  padding: 30px 100px;
   display: grid;
-  padding: 0 100px;
   grid-template-columns: 1fr 1fr;
-}
-
-.info h1 {
-  font-weight: 400;
-  font-size: 2rem;
-  letter-spacing: 0.1rem;
-  color: #d4e0e2;
-}
-
-.info p {
-  font-size: 2rem;
-  font-weight: lighter;
+  grid-gap: 20px;
+  left: 0;
+  right: 0;
 }
 
 .info.active {
-  height: 300px;
-  padding: 10px 100px 50px 100px;
+  display: grid;
 }
 
-.timezone {
-  padding-top: 3rem;
+.info h3 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1rem;
+  color: #dad1d1;
+}
+
+.info p {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.final-ano {
+  font-weight: lighter !important;
+}
+
+.final-ano span {
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 960px) {
   .main-section.active {
-    margin-top: -200px;
-  }
-
-  .hora {
-    margin-top: 8rem;
+    margin-top: -260px;
   }
 
   .hora h1 {
@@ -214,6 +218,15 @@ p {
 
   .hora h2:last-child {
     font-size: 3rem;
+  }
+
+  .info h3 {
+    font-size: 1.5rem;
+  }
+
+  .info p {
+    font-size: 1rem;
+    font-weight: lighter;
   }
 }
 
@@ -232,7 +245,7 @@ p {
   }
 
   #hora h1 {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 
   .hora h2:last-child {
@@ -251,7 +264,7 @@ p {
   }
 
   .main-section.active {
-    margin-top: -180px;
+    margin-top: -430px;
   }
 
   .hora {
@@ -274,6 +287,13 @@ p {
   .btn {
     bottom: -30px;
   }
+
+  .info {
+    padding: 30px 30px;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -283,7 +303,7 @@ p {
   }
 
   .main-section.active {
-    margin-top: -180px;
+    margin-top: -400px;
   }
 
   .hora {
@@ -292,7 +312,7 @@ p {
   }
 
   .hora h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   #hora h1 {
@@ -305,5 +325,21 @@ p {
 
   .btn {
     bottom: -30px;
+  }
+
+  .info {
+    padding: 30px 30px;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    text-align: center;
+  }
+
+  .info h3 {
+    font-size: 1.2rem;
+  }
+
+  .info p {
+    font-size: 1rem;
+    font-weight: lighter;
   }
 }

@@ -1,5 +1,9 @@
 const main = document.querySelector('.main-section');
 
+const zeroFill = n => {
+    return ('0' + n).slice(-2);
+}
+
 function initTime(){
     const divHora = document.querySelector('#hora');
     const h1Hora = document.createElement('h1');
@@ -7,10 +11,6 @@ function initTime(){
     divHora.appendChild(h1Hora);
 
     function relogio(){
-
-        const zeroFill = n => {
-            return ('0' + n).slice(-2);
-        }
 
         const dateHora = new Date();
         const h = dateHora.getHours();
@@ -31,19 +31,6 @@ function initTime(){
             main.classList.remove('bg-noite');
             msg.innerHTML = '<i class="fas fa-sun icon-default"></i> Bom dia!'; 
         }
-
-        // if (h >= 12 && h <= 17 ) {
-        //     main.classList.add('bg-tarde');
-        //     msg.innerHTML = '<i class="fas fa-cloud-sun icon-alt"></i> Boa Tarde!';
-  
-        // } else if (h >= 18) {
-        //     main.classList.remove('bg-tarde');
-        //     main.classList.add('bg-noite');
-        //     msg.innerHTML = '<i class="fas fa-moon icon-alt"></i> Boa Noite!';
-        // } else {
-        //     main.classList.remove('bg-noite');
-        //     msg.innerHTML = '<i class="fas fa-sun icon-default"></i> Bom dia!';    
-        // }
  
         h1Hora.innerHTML = hora;
     }
@@ -71,24 +58,29 @@ initBtn();
 
 const data = document.querySelector('.data');
 const dia = document.querySelector('.dia');
+getDataAtual = new Date();
 
-const dias = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo'];
+const dias = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
 
-dataAtual = new Date();
+const diaSemana = dias[getDataAtual.getDay() % 7];
+dia.innerText = diaSemana;
 
-const diaSemana = dias[dataAtual.getDay() % 7];
-console.log(diaSemana);
+const diaAtual = getDataAtual.getDate();
+const mesAtual = getDataAtual.getMonth() + 1;
+const anoAtual = getDataAtual.getFullYear();
+const dataAtual = `${zeroFill(diaAtual)}/${zeroFill(mesAtual)}/${anoAtual}`
 
-// dataAtual = new Date();
+data.innerText = dataAtual;
 
-// diaSemana = dataAtual.getDay()
-// dia = dataAtual.getDate();
-// mes = dataAtual.getMonth() + 1;
-// ano = dataAtual.getFullYear();
+const diaAnoNovo = document.querySelector('.anoNovo');
+const anoNovo = new Date('1 January 2022 0:0:0 GMT-0300');
 
-// data.innerHTML = `${dia}/${mes}/${ano} `;
 
-// Dia.innerHTML = `${diaSemana}`
+const calcTime = anoNovo.getTime() - getDataAtual.getTime();
+const diasRestantes = Math.floor( calcTime / (24 * 60 * 60 * 1000));
+diaAnoNovo.innerText = diasRestantes;
+
+
 
 
 
