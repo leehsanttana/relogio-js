@@ -59,7 +59,7 @@ p {
 }
 
 .main-section.active {
-  margin-top: -330px;
+  margin-top: -260px;
 }
 
 /* SESSÃO COMENTÁRIO */
@@ -158,7 +158,7 @@ p {
   color: #e2dad4;
 }
 
-.btn:hover {
+.btn:active {
   background: #cfc0ac;
 }
 
@@ -205,7 +205,7 @@ p {
 
 @media only screen and (max-width: 960px) {
   .main-section.active {
-    margin-top: -260px;
+    margin-top: -130px;
   }
 
   .hora h1 {
@@ -233,6 +233,10 @@ p {
 @media only screen and (max-width: 768px) {
   .main-section {
     height: 100vh;
+  }
+
+  .main-section.active {
+    margin-top: -330px;
   }
 
   .hora {
@@ -264,7 +268,7 @@ p {
   }
 
   .main-section.active {
-    margin-top: -430px;
+    margin-top: -400px;
   }
 
   .hora {
@@ -303,7 +307,7 @@ p {
   }
 
   .main-section.active {
-    margin-top: -400px;
+    margin-top: -500px;
   }
 
   .hora {
@@ -324,7 +328,7 @@ p {
   }
 
   .btn {
-    bottom: -30px;
+    bottom: -60px;
   }
 
   .info {
